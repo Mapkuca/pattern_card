@@ -9,15 +9,16 @@ public class DataGenerator {
     }
 
     private static Faker getFaker() {
-        return  new Faker(new Locale("ru"));
+        return new Faker(new Locale("ru"));
     }
 
     public static LocalDate generateDate() {
         long minDay = LocalDate.now().plusDays(1).toEpochDay();
         long maxDay = LocalDate.now().plusMonths(2).toEpochDay();
-        long someDay = ThreadLocalRandom.current().nextLong(minDay,maxDay);
+        long someDay = ThreadLocalRandom.current().nextLong(minDay, maxDay);
         return LocalDate.ofEpochDay(someDay);
     }
+
     public static String generateCity() {
         return DataGenerator.getFaker().address().city();
     }
@@ -29,7 +30,6 @@ public class DataGenerator {
     public static String generatePhone() {
         return DataGenerator.getFaker().phoneNumber().phoneNumber();
     }
-
 
 }
 
